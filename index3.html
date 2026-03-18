@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Chatbot</title>
+
+<style>
+body{
+font-family: Arial;
+background:#f2f2f2;
+}
+
+#chatbox{
+width:400px;
+margin:50px auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+}
+
+#messages{
+height:300px;
+overflow-y:auto;
+border:1px solid #ccc;
+padding:10px;
+margin-bottom:10px;
+}
+
+.user{
+text-align:right;
+color:blue;
+margin:5px;
+}
+
+.bot{
+text-align:left;
+color:green;
+margin:5px;
+}
+
+input{
+width:75%;
+padding:8px;
+}
+
+button{
+padding:8px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="chatbox">
+<h2>My Chatbot</h2>
+
+<div id="messages"></div>
+
+<input type="text" id="userInput" placeholder="Type a message...">
+<button onclick="sendMessage()">Send</button>
+
+</div>
+
+<script>
+
+function sendMessage(){
+
+let input=document.getElementById("userInput").value;
+let messages=document.getElementById("messages");
+
+messages.innerHTML += "<div class='user'>"+input+"</div>";
+
+let reply="Sorry, I don't understand.";
+
+input=input.toLowerCase();
+
+if(input=="hi" || input=="hello"){
+reply="Hello!";
+}
+
+else if(input=="how are you?"){
+reply="I am fine 😊";
+}
+
+else if(input=="what is your name?"){
+reply="I am a Kanak Kaware.";
+}
+
+else if(input=="where are you from?"){
+reply="I am from Nagpur.";
+}
+
+else if(input=="bye"){
+reply="Goodbye! Have a nice day.";
+}
+
+messages.innerHTML += "<div class='bot'>"+reply+"</div>";
+
+document.getElementById("userInput").value="";
+messages.scrollTop=messages.scrollHeight;
+
+}
+
+</script>
+
+</body>
+</html>
